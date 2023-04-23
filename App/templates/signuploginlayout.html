@@ -1,14 +1,23 @@
 <!doctype html>
 <html>
-  <style>
-     body{
-    background-image: url("{{url_for('static', filename='background.jpg')}}");
-    
-  }
-  </style>
 
+<style>
+  body{
+ background-image: url("{{url_for('static', filename='background.jpg')}}");
+ background-position: center;
+ background-size: 100%;
+
+
+
+}
+
+tc{
+  color:linear-gradient(to bottom, rgb(62, 111, 139), rgb(50, 114, 192), #1e66aa)
+}
+
+</style>
   <head>
-    
+  
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
      <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,25 +26,20 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}{% endblock %}</title>
+ 
 
   </head>
   <body>
-    <nav class="blue">
+    <h1 class="center">
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo center">{% block page %}{% endblock %}</a>
-        <div class="nav-wrapper">
-            <ul id="nav-mobile" class="left">
-                <li><a href="/">Home</a></li>
-                <li><a href="/users">Users Jinja</a></li>
-                <li><a href="/static/users">Users JS</a></li>
-            </ul>
-        </div>
+        <a href="#!" class="brand-logo center blue-text">{% block page %}{% endblock %}</a>
+        <h2 class="center white-text" >{% block header %}{% endblock %}</h2>
       </div>
-    </nav>
+    </h1>
     
     {% with messages = get_flashed_messages() %}
       {% if messages %}
-      <nav class="white black-text" style="padding: 10px">
+      <nav class="white black-text" style="padding:10px">
         <div class="nav-wrapper">
             <ul class="flashes">
             {% for message in messages %}
@@ -48,6 +52,8 @@
     {% endwith %}
 
     <div class="container" id="content">{% block content %}{% endblock %}</div>
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>

@@ -5,7 +5,9 @@
 {{ super() }}
 
 {% block content %}
-    <div class="row">
+
+ <div class="card center" style="padding: 10%;">
+    <div class="row justify-content">
         <p>
             This is table is renderd on the Server. Flask gets the data from the database and uses jinja templates to dyanmically render this page when a request is sent to <a href="/users">/users</a>.
         </p>
@@ -27,7 +29,7 @@
       
         <div class="row">
           <div class="input-field col s12">
-            <button class="btn waves-effect waves-light right purple" type="submit" name="action">Submit</button>
+            <button class="btn waves-effect waves-light right blue" type="submit" name="action">Submit</button>
           </div>
         </div> 
 
@@ -52,4 +54,8 @@
       </table>
     </div>
 
+ </div>
+
 {% endblock %}
+
+{% block footer %} Copyright @ 2023 JUDA. All Rights Reserved. {% endblock %}

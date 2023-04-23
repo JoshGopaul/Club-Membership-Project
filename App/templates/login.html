@@ -1,0 +1,45 @@
+
+{% extends "signuploginlayout.html" %}
+
+{% block title %}JUDA Fitness Club{% endblock %}
+
+{% block page %}Welcome to JUDA Fitness Club{% endblock %}
+{% block header %}NO Pain NO Gain{% endblock %}
+
+
+{% block content %}
+
+<div class="card center content-center center-vertical" style="margin-top: 10%; margin-left: 20%; margin-right:20%;">
+
+  <div class="subcontent center-vertical">
+    <h4 class="center" style="padding-right:5%; padding-top: 5%; padding-bottom: 5%;  background:linear-gradient(to bottom, rgb(62, 111, 139), rgb(50, 114, 192), #1e66aa);">Login</h4>
+
+    <form id="loginForm" method="POST" action="/login" style="padding-left: 25%;">
+
+    
+      <div class="row justify-content">
+        <div class="input-field col s8">
+          <input placeholder="username" name="username" type="text" class="validate">
+        </div>
+      </div>
+      <div class="row justify-content">
+        <div class="input-field col s8">
+          <input placeholder="password" name="password" type="password" class="validate">
+        </div>
+      </div>
+      <div class="col s8 card-action right-align" style="padding-right: 35%;">
+        <input type="submit" class="blue text-white btn" value="Login">
+      </div>
+        <div class="col s5 card-action left-align">
+          <a href="/signup">Don't have an account? Sign Up</a>
+        </div>
+    </div>
+      </div>
+  
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %} Copyright @ 2023 JUDA. All Rights Reserved. {% endblock %}
