@@ -5,6 +5,8 @@ class UserActivity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
     activity_id = db.Column(db.Integer, db.ForeignKey('activity.id'), nullable = False)
+    time = db.Column(db.Integer)
+    calories = db.Column(db.Integer)
     date = db.Column(db.DateTime(), default=datetime.utcnow)
 
     def __init__(self, user_id, activity_id):
