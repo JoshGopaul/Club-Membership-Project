@@ -41,7 +41,7 @@ class User(db.Model):
     def make_payment(self, amount):
         #code for payment
 
-    def make_comment(self, post_id, text):
+     def make_comment(self, post_id, text):
         post = Post.query.get(post_id)
         if post:
             try:
