@@ -13,6 +13,31 @@ def signup_page():
 def login_page():
     return render_template('login.html')
 
+@index_views.route('/home', methods=['GET'])
+def home_page():
+    return render_template('layout.html')
+
+
+@index_views.route('/community', methods=['GET'])
+def community_page():
+    return render_template('community.html')
+
+
+@index_views.route('/membership', methods=['GET'])
+def membership_page():
+    return render_template('membership.html')
+
+
+@index_views.route('/activities', methods=['GET'])
+def activity_page():
+    return render_template('activity.html')
+
+@index_views.route('/progress', methods=['GET'])
+def progress_page():
+    return render_template('progress.html')
+
+
+
 @index_views.route('/init', methods=['GET'])
 def init():
     db.drop_all()
