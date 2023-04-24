@@ -27,7 +27,8 @@ def home_page():
 def community_page():
     id = current_user.id
     posts = Post.query.all()
-    return render_template('community.html', posts=posts)
+    comments = Comments.query.all()
+    return render_template('community.html', posts=posts, comments=comments)
 
 
 @index_views.route('/membership', methods=['GET'])
@@ -67,28 +68,71 @@ def index_page():
 #form actions
 
 @index_views.route('/post', methods=['POST'])
+@login_required
 def post_action():
     data = request.form
     id = current_user.id 
     post = make_post(user_id=id,title=data['title'],text=data['text'])
     return redirect('/community')
 
+@index_views.route('/post<int:post_id>', methods=['POST'])
+@login_required
+def edit_post_action(post_id):
+    data = request.form
+    id = current_user.id 
+    post = edit_post(user_id=id,post_id=post_id,title=data['title'],text=data['text'])
+    return redirect('/community')
+
+@index_views.route('/post<int:post_id>', methods=['POST'])
+@login_required
+def remove_post_action(post_id):
+    data = request.form
+    id = current_user.id 
+    post = remove_post(user_id=id,post_id=post_id)
+    return redirect('/community')
+
+
+@index_views.route('/comment/<int:post_id>', methods=['POST'])
+@login_required
+def comment_action(post_id):
+    data = request.form
+    id = current_user.id 
+    comment = make_comment(user_id=id,post_id=post_id,text=data['text'])
+    return redirect('/community')
+
+@index_views.route('/comment/<int:post_id>/<int:comment_id>', methods=['POST'])
+@login_required
+def edit_comment_action(post_id, comment_id):
+    data = request.form
+    id = current_user.id 
+    post = edit_comment(user_id=id,comment_id=comment_id,text=data['text'])
+    return redirect('/community')
+
+@index_views.route('/comment/<int:post_id>/<int:comment_id>', methods=['POST'])
+@login_required
+def remove_comment_action(post_id, comment_id):
+    data = request.form
+    id = current_user.id 
+    post = remove_comment(user_id=id,comment_id=comment_id)
+    return redirect('/community')
+
+
+
+# @index_views.route('/activity/<int:activity_id>', methods=['POST'])
+# def create_activity(actitvity_id):
+#     data = request.form
+#     user_id = current_user.id 
+#     review = make_review(user_id=user_id, actitvity_id = actitvity_id ,rating=data['rating'],text=data['text'])
+#     return redirect('/activities')
+
+
+
 @index_views.route('/activity/<int:activity_id>', methods=['POST'])
-def create_activity(actitvity_id):
+@login_required
+def review_activity_action(actitvity_id):
     data = request.form
     user_id = current_user.id 
     review = make_review(user_id=user_id, actitvity_id = actitvity_id ,rating=data['rating'],text=data['text'])
     return redirect('/activities')
-
-
-@index_views.route('/activity/<int:activity_id>', methods=['POST'])
-def activityReview_action(actitvity_id):
-    data = request.form
-    user_id = current_user.id 
-    review = make_review(user_id=user_id, actitvity_id = actitvity_id ,rating=data['rating'],text=data['text'])
-    return redirect('/activities')
-
-
-    
 
 
