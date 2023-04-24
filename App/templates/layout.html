@@ -1,62 +1,106 @@
-<!doctype html>
-<html>
-  <style>
-     body{
-    background-image: url("{{url_for('static', filename='background.jpg')}}");
-    
-  }
-  </style>
-
-  <head>
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>{% block title %}{% endblock %}</title>
-
-  </head>
-  <body>
-
-    <!--NAVBAR CODE-->
-
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">{% block page %}{% endblock %}</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="community.html">Community</a></li>
-          <li><a href="membership.html">Membership</a></li>
-          <li><a href="activity.html">Activities</a></li>
-          <li><a href="progress.html">Progress Tracker</a></li>
-          <li><a href="/signout">Logout</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-      <nav class="white black-text" style="padding: 10px">
-        <div class="nav-wrapper">
-            <ul class="flashes">
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
+<DOCTYPE html>
+  <html>
+    <head>
+      <!--Let browser know website is optimized for mobile-->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+       <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Compiled and minified CSS -->
+      <link href="layout/style.css" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <title>JUDA Club</title>
+      <meta name="description" content="Club Memership System">
+      
+    </head>
+  
+    <body id="top">
+      <div class="bg overlay" style="background-image:url('images/muscles.jpg');">
+        <nav class="transparentBG">
+          <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo">JUDA FITNESS</a>
+            <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="pages/community.html">Community</a></li>
+              <li><a href="membership.html">Membership</a></li>
+              <li><a href="activity.html">Activities</a></li>
+              <li><a href="progress.html">Progress Tracker</a></li>
+              <li><a href="login.html">Login</a></li>
             </ul>
+          </div>
+        </nav>
+  
+        <div id="pageintro" class = "hoc clear">
+         <article>
+           <h3 class="heading">WELCOME TO THE CLUB</h3>
+          <p>No Pain, No Gain.</p>
+         </article>
         </div>
-      </nav>
-      {% endif %}
-    {% endwith %}
-
-    <div class="container" id="content">{% block content %}{% endblock %}</div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  </body>
-
-  <footer class="text-white center" style="color: white;"><p>{% block footer %}{% endblock %}</p></footer> 
-
-
-</html>
+  
+      </div>
+  
+      <ul class="sidenav" id="mobile-menu">
+        <li><a href="index.html" style="color: rgba(62,92,118)"><i class="material-icons" style="color: rgba(62,92,118)">home</i>Home</a></li>
+        <li><a href="pages/community.html">Community</a></li>
+        <li><a href="pages/community.html">Membership</a></li>
+        <li><a href="pages/community.html">Activities</a></li>
+        <li><a href="pages/community.html">Progress</a></li>
+        <li><a href="pages/community.html">Login</a></li>
+      </ul>
+  
+      <div class="wrapper row3" id="mainwrapper">
+        <main class="hoc container1 clear">
+           <section id="introblocks">
+             <h4 class="heading" id="services">SERVICES</h4>
+             <ul class="nospace group btmspace-80">
+               <li class="one_third first">
+                 <figure><a class="imgover" href="/pages/activities.html"><img src="images/activities.jpg" alt="Activity"></a>
+                   <figcaption>
+                     <h6 class="heading">TRACK YOUR ACTIVITIES</h6>
+                     <p>Keep track of what activities you've done so far.</p>
+                   </figcaption>
+                 </figure>
+               </li>
+               <li class="one_third">
+                 <figure><a class="imgover" href="/pages/activities.html"><img src="images/progress.jpg" alt="Activity"></a>
+                   <figcaption>
+                     <h6 class="heading">TRACK YOUR PROGRESS</h6>
+                     <p>Track your progress to see how far you've come.</p>
+                   </figcaption>
+                 </figure>
+               </li>
+               <li class="one_third">
+                 <figure><a class="imgover" href="/pages/activities.html"><img src="images/community.jpg" alt="Activity"></a>
+                   <figcaption>
+                     <h6 class="heading">COMMUNITY POSTS</h6>
+                     <p>Get in touch with your fellow members by using the community forum.</p>
+                   </figcaption>
+                 </figure>
+               </li>
+             </ul>
+             <h4 class="heading" id="payprompt">Just $250 a month</h4>
+             <a id="paybtn" class="waves-effect waves-dark btn-large amber accent-4">JOIN NOW</a>
+           </section>
+        </main>
+      </div>
+  
+      <footer>
+        <p><i class="material-icons">email</i> judateam@gmail.com<i class="material-icons">phone</i> 1-868-555-1234</p>
+      </footer>
+  
+      <script src="script.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+      <script>
+        $(document).ready(function(){
+          $('.sidenav').sidenav();
+        })
+  
+        $(".dropdown-trigger").dropdown();
+      </script>
+  
+      
+    </body>
+  </html>
