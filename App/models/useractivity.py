@@ -9,7 +9,7 @@ class UserActivity(db.Model):
     calories = db.Column(db.Integer)
     date = db.Column(db.DateTime(), default=datetime.utcnow)
 
-    def __init__(self, user_id, activity_id):
+    def __init__(self, user_id, activity_id, time, calories):
         self.user_id = user_id
         self.activity_id = activity_id
 
@@ -18,5 +18,7 @@ class UserActivity(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'activity_id': self.activity_id,
+            'time': self.time,
+            'calories': self.calories,
             'date': self.date
         }
