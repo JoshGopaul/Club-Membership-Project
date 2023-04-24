@@ -20,18 +20,22 @@
 
   </head>
   <body>
-    <nav class="blue">
+
+    <!--NAVBAR CODE-->
+
+    <nav>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo center">{% block page %}{% endblock %}</a>
-        <div class="nav-wrapper">
-            <ul id="nav-mobile" class="left">
-                <li><a href="/">Home</a></li>
-                <li><a href="/users">Users Jinja</a></li>
-                <li><a href="/static/users">Users JS</a></li>
-            </ul>
-        </div>
+        <a href="#" class="brand-logo">{% block page %}{% endblock %}</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="community.html">Community</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="activity.html">Activities</a></li>
+          <li><a href="progress.html">Progress Tracker</a></li>
+          <li><a href="/signout">Logout</a></li>
+        </ul>
       </div>
     </nav>
+
     
     {% with messages = get_flashed_messages() %}
       {% if messages %}
