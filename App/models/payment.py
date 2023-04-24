@@ -13,7 +13,7 @@ class Payment(db.Model):
     def toJSON(self):
         return{
             'id': self.id,
-            'customer_id': self.customer_id
-            'amount': self.amount
+            'customer_id': self.customer_id,
+            'amount': self.amount,
             'date': self.date
         }

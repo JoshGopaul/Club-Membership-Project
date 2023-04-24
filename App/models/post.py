@@ -16,8 +16,8 @@ class Post(db.Model):
     def toJSON(self):
         return{
             'id': self.id,
-            'user_id': self.user_id
-            'title': self.title
-            'text': self.text
+            'user_id': self.user_id,
+            'title': self.title,
+            'text': self.text,
             'date': self.date
         }
