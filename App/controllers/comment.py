@@ -6,12 +6,12 @@ from sqlalchemy.exc import IntegrityError
 def make_comment(user_id, post_id, text):
     user = User.query.filter_by(id=user_id).first()
     if user:
-       comment = User.make_comment(user,comment_id, text)
+       comment = User.make_comment(user,post_id, text)
        return comment
     return None
         
 
-def edit_comment(user_id, post_id, text):
+def edit_comment(user_id, comment_id, text):
     user = User.query.filter_by(id=user_id).first()
     if user:
        comment = User.edit_comment(user,comment_id, text)
@@ -21,7 +21,7 @@ def edit_comment(user_id, post_id, text):
 def remove_comment(user_id, comment_id):
     user = User.query.filter_by(id=user_id).first()
     if user:
-       comment = User.remove_comment(user,comment_id, text)
+       comment = User.remove_comment(user,comment_id)
        return True
     return None
 
@@ -32,7 +32,7 @@ def get_comments(id):
 def get_all_comments():
     return Comment.query.all()
 
-def get_all_reviews_json():
+def get_all_comments_json():
     comments = get_all_comments()
     if comments:
        return[comment.toJSON() for comment in comments]
