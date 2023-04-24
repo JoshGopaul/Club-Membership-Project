@@ -74,9 +74,9 @@ class User(db.Model):
             return True
         return None
 
-    def make_review(self, rating, text):
+    def make_review(self, actitvity_id, rating, text):
         try:
-            review = Review(self.id, rating, text)
+            review = Review(self.id, actitvity_id, rating, text)
             db.session.add(review)
             db.session.commit()
             return review

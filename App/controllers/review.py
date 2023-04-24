@@ -4,10 +4,10 @@ from sqlalchemy.exc import IntegrityError
 
 
 
-def create_review(userId, rating, text):
-    user = User.query.filter_by(user_id=userId).first()    
+def create_review(user_id, actitvity_id, rating, text):
+    user = User.query.filter_by(user_id=user_id).first()    
     if user:
-       review = User.make_review(user, rating, text)
+       review = User.make_review(user_id, activity_id, rating, text)
        return review
     return None
 

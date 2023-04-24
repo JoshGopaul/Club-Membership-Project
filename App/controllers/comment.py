@@ -3,7 +3,7 @@ from App.database import db
 from sqlalchemy.exc import IntegrityError
 
 
-def make_comment(user_id, comment_id, text):
+def make_comment(user_id, post_id, text):
     user = User.query.filter_by(id=user_id).first()
     if user:
        comment = User.make_comment(user,comment_id, text)
@@ -11,7 +11,7 @@ def make_comment(user_id, comment_id, text):
     return None
         
 
-def edit_comment(user_id, comment_id, text):
+def edit_comment(user_id, post_id, text):
     user = User.query.filter_by(id=user_id).first()
     if user:
        comment = User.edit_comment(user,comment_id, text)

@@ -4,25 +4,25 @@ from sqlalchemy.exc import IntegrityError
 
 
 
-def make_post(user_id, post_id, text):
+def make_post(user_id, title, text):
     user = User.query.filter_by(id=user_id).first()
     if user:
-       post = User.make_post(user,post_id, text)
+       post = User.make_post(user,title, text)
        return post
     return None
         
 
-def edit_post(user_id, post_id, text):
+def edit_post(user_id, post_id, title, text):
     user = User.query.filter_by(id=user_id).first()
     if user:
-       post = User.edit_post(user,post_id, text)
+       post = User.edit_post(user, post_id, title, text)
        return post
     return None
 
 def remove_post(user_id, post_id):
     user = User.query.filter_by(id=user_id).first()
     if user:
-       post = User.remove_post(user,post_id, text)
+       post = User.remove_post(user,post_id)
        return True
     return None
 
