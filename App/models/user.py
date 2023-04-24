@@ -83,7 +83,37 @@ class User(db.Model):
         except Exception:
             db.session.rollback()
             return None
+    
+    def make_activity(self, title, description):
+        try:
+            activity = Activity(self.id, title, description)
+            db.session.add(activity)
+            db.session.commit()
+            return activity
+        except Exception:
+            db.session.rollback()
+            return None
 
+    def edit_activity(self, activity_id, title, description):
+        activity = Activity.query.get(activity_id)
+        if activity:
+            if title:
+                activity.title = title
+            if description:
+                activity.description = description
+            db.session.add(activity)
+            db.session.commit()
+            return True
+        return None
+
+    def remove_activity(self, activity_id):
+        activity = Activity.query.get(activity_id)
+        if activity:
+            db.session.delete(activity)
+            db.session.commit()
+            return True
+        return None
+    
     def __init__(self, username, email, password):
         self.username = username
         self.email = email
