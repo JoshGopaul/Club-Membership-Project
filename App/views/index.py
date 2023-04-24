@@ -118,15 +118,6 @@ def remove_comment_action(post_id, comment_id):
 
 
 
-# @index_views.route('/activity/<int:activity_id>', methods=['POST'])
-# def create_activity(actitvity_id):
-#     data = request.form
-#     user_id = current_user.id 
-#     review = make_review(user_id=user_id, actitvity_id = actitvity_id ,rating=data['rating'],text=data['text'])
-#     return redirect('/activities')
-
-
-
 @index_views.route('/activity/<int:activity_id>', methods=['POST'])
 @login_required
 def review_activity_action(actitvity_id):
