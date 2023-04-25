@@ -5,13 +5,13 @@ class Activity(db.Model):
     title =  db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(255), nullable=False)
     time_spent = db.Column(db.Integer, nullable=False)
-    calories = db.Column(db.Integer, nullable=False)
+    calories_burnt = db.Column(db.Integer, nullable=False)
 
-    def __init__(self, title, description, time_spent, calories):
+    def __init__(self, title, description, time_spent, calories_burnt):
         self.title = title
         self.description = description
         self.time_spent = time_spent
-        self.calories = calories
+        self.calories_burnt = calories_burnt
 
     def toJSON(self):
         return{
@@ -19,5 +19,5 @@ class Activity(db.Model):
             'title': self.title,
             'description': self.description,
             'time_spent': self.time_spent,
-            'calories': self.calories
+            'calories_burnt': self.calories_burnt
         }
