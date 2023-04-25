@@ -2,15 +2,15 @@ from App.models import*
 from App.database import db
 from sqlalchemy.exc import IntegrityError
 
-def make_activity(user_id, title, description):
+def make_activity(user_id, title, description, time_spent, calories):
     user = User.query.filter_by(id=user_id).first()
     if user:
-       activity = User.make_activity(user, title, description)
+       activity = User.make_activity(user, title, description, time-spent, calories)
        return activity
     return None
         
 
-def edit_activity(user_id, activity_id, title, description):
+def edit_activity(user_id, activity_id, title, description, time_spent, calories):
     user = User.query.filter_by(id=user_id).first()
     if user:
        activity = User.edit_activity(user, activity_id, title, description)
