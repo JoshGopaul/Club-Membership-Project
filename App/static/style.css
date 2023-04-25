@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6, .heading{font-family:Georgia, "Times New Roman", Times, 
   line-height:2rem;
 }
 
-#pageintro{padding:100px 0 100px;}
+
 
 #payprompt{
   color:#F0EBDB;
@@ -77,6 +77,15 @@ h1, h2, h3, h4, h5, h6, .heading{font-family:Georgia, "Times New Roman", Times, 
 
 #paybtn{
   color: black;
+}
+
+#Comfeed{
+  color: white;
+  padding-bottom: 20px;
+}
+
+#postbtn{
+  color:black;
 }
 
 .bg{
@@ -116,9 +125,9 @@ h1, h2, h3, h4, h5, h6, .heading{font-family:Georgia, "Times New Roman", Times, 
 .container1{padding:80px 0;}
 
 #introblocks{display:block; position:relative; margin:-180px 0 0 0; z-index:1; text-align:center;}/* 180px => 100px + container padding */
-#introblocks figure{}
+
 #introblocks figure figcaption{display:block; padding:30px 0 0 0; text-align:center;}
-#introblocks figure figcaption > a{}
+
 #introblocks figcaption{color:#FFFFFF}
 #introblocks figure figcaption .heading{font-size:1.2rem; font-weight:700; margin-bottom:0;}
 #introblocks figure figcaption .heading.underline::after{left:50%; margin-left:-12%;}
@@ -138,8 +147,10 @@ h1, h2, h3, h4, h5, h6, .heading{font-family:Georgia, "Times New Roman", Times, 
   background: rgb(13,19,33)
 }
 
-#commheading{
-  
+
+
+#content{
+  padding-bottom:20px;
 }
 
 .one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:inline-block; float:left; margin:0 0 0 4.21052%; list-style:none;}
@@ -210,13 +221,9 @@ footer{padding: 1px; background-color: rgb(0, 0, 0); text-align: right; color: #
   #mgbtn{align-content: center}
   .searchrow{margin-right: 30px;}
 
-	#breadcrumb{}
+	
 
-	.container{}
-
-	#footer{}
-
-	#copyright{}
+	
 	#copyright p:first-of-type{margin-bottom:10px;}
 }
 
@@ -243,3 +250,237 @@ footer{padding: 1px; background-color: rgb(0, 0, 0); text-align: right; color: #
 	#footer .latestimg > li:last-child{margin-bottom:0;}
 	#footer .latestimg > li img{width:auto;}
 }
+
+/* STYLING CODE FOR THE ACTIVITY PAGE */
+fieldset,table,hr,tr,th,td,select{
+   border: 1px solid #9f9f9f;
+}
+
+.center {
+   display: table;
+   margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+   input,select,button {
+      margin: 5px;
+      width: 90%;
+   }
+}
+
+.perfil{
+   max-width: 400px;
+   max-height: 100px;
+   width: 100%;
+   height: auto;
+}
+
+.text-center{
+   text-align: center;
+}
+
+table {
+   border-collapse: collapse;
+   text-align: center;
+   width: 100%;
+}
+
+th {
+   height: 25px;
+}
+
+tbody tr:nth-child(odd) {
+   background-color: #dcdcdd;
+}
+section{
+   margin-bottom: 10px;
+}
+
+input,select {
+   padding: 4px 10px;
+   margin-right: 10px;
+   -ms-box-sizing:content-box;
+   -moz-box-sizing:content-box;
+   box-sizing:content-box;
+   -webkit-box-sizing:content-box;
+}
+
+.add {
+   background-color: #4CAF50;
+   border: none;
+   color: white;
+   padding: 5px 50px;
+   cursor: pointer;
+   border-radius: 20px;
+}
+
+.delete {
+   background-color: #e63946;
+   opacity: 0.7;
+   border: none;
+   color: white;
+   padding: 4px 9px;
+   border-radius: 20px;
+   cursor: pointer;
+}
+
+.delete:hover{
+   opacity: 1;
+}
+
+/* END OF STYLING CODE FOR THE ACTIVITY PAGE */
+
+
+/* CSS STYLING FOR MEMBERSHIP PAGE */
+
+body{
+  background-color: #1321;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.payment-wrapper{
+  background-color: #fff;
+  width: 500px;
+  padding: 25px;
+  margin: 25px auto 0;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+}
+.payment-wrapper h2{
+  background-color: #fcfcfc;
+  color: #1D2D44;
+  font-size: 24px;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px dotted #333;
+}
+h4{
+  padding-bottom: 5px;
+  color: #1D2D44;
+}
+.input-group{
+  margin-bottom: 8px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 5px 0;
+}
+.input-box{
+  width: 100%;
+  margin-right: 12px;
+  position: relative;
+}
+.input-box:last-child{
+  margin-right: 0;
+}
+.name{
+  padding: 14px 10px 14px 50px;
+  width: 100%;
+  background-color: #fcfcfc;
+  border: 1px solid #00000033;
+  outline: none;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  border-radius: 3px;
+  color: #333;
+}
+.name:focus, .dob:focus{
+  -webkit-box-shadow:0 0 2px 1px #1D2D44;
+  -moz-box-shadow:0 0 2px 1px #1D2D44;
+  box-shadow: 0 0 2px 1px #1D2D44;
+  border: 1px solid #1D2D44;
+}
+.input-box .icon{
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  color: #333;
+  background-color: #f1f1f1;
+  border-radius: 2px 0 0 2px;
+  transition: 0.3s;
+  font-size: 20px;
+  pointer-events: none;
+  border: 1px solid #00000033;
+  border-right: none;
+}
+.name:focus + .icon{
+  background-color: #1D2D44;
+  color: #fff;
+  border-right: 1px solid #1D2D44;
+  border: none;
+  transition: 1s;
+}
+.dob{
+  width: 30%;
+  padding: 14px;
+  text-align: center;
+  background-color: #fcfcfc;
+  transition: 0.3s;
+  outline: none;
+  border: 1px solid #c0bfbf;
+  border-radius: 3px;
+}
+.radio{
+  display: none;
+}
+.input-box label{
+  width: 50%;
+  padding: 13px;
+  background-color: #fcfcfc;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  border: 1px solid #c0bfbf;
+}
+.input-box label:first-of-type{
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-right: none;
+}
+.input-box label:last-of-type{
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.radio:checked + label{
+  background-color: #1D2D44;
+  color: #fff;
+  transition: 0.5s;
+}
+.input-box select{
+  display: inline-block;
+  width: 50%;
+  padding: 12px;
+  background-color: #fcfcfc;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid #c0bfbf;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.input-box select:focus{
+  background-color: #1D2D44;
+  color: #fff;
+  text-align: center;
+}
+button{
+  width: 100%;
+  background: transparent;
+  border: none;
+  background: #1D2D44;
+  color: #fff;
+  padding: 15px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.35s ease;
+}
+button:hover{
+  cursor: pointer;
+  background: #1D2D44;
+}
+/* END  OF CSS STYLING FOR MEMBERSHIP */
