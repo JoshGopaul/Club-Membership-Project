@@ -84,9 +84,9 @@ class User(db.Model):
             db.session.rollback()
             return None
     
-    def make_activity(self, title, description):
+    def make_activity(self, title, description, time_spent, calories):
         try:
-            activity = Activity(self.id, title, description)
+            activity = Activity(self.id, title, description, time_spent, calories)
             db.session.add(activity)
             db.session.commit()
             return activity
@@ -94,13 +94,17 @@ class User(db.Model):
             db.session.rollback()
             return None
 
-    def edit_activity(self, activity_id, title, description):
+    def edit_activity(self, activity_id, title, description, time_spent, calories):
         activity = Activity.query.get(activity_id)
         if activity:
             if title:
                 activity.title = title
             if description:
                 activity.description = description
+            if time_spent:
+                activity.time_spent = time_spent
+            if calories:
+                activity.calories = calories
             db.session.add(activity)
             db.session.commit()
             return True
