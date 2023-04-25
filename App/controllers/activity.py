@@ -5,7 +5,7 @@ from sqlalchemy.exc import IntegrityError
 def make_activity(user_id, title, description, time_spent, calories_burnt):
     user = User.query.filter_by(id=user_id).first()
     if user:
-       activity = User.make_activity(user, title, description, time-spent, calories_burnt)
+       activity = User.make_activity(user, title, description, time_spent, calories_burnt)
        return activity
     return None
         

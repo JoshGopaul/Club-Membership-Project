@@ -71,7 +71,7 @@ def index_page():
 
 #form actions
 
-@index_views.route('/post', methods=['POST'])
+@index_views.route('/add-post', methods=['POST'])
 @login_required
 def post_action():
     data = request.form
@@ -79,7 +79,7 @@ def post_action():
     post = make_post(user_id=id,title=data['title'],text=data['text'])
     return redirect('/community')
 
-@index_views.route('/post<int:post_id>', methods=['POST'])
+@index_views.route('/edit-post<int:post_id>', methods=['POST'])
 @login_required
 def edit_post_action(post_id):
     data = request.form
@@ -87,7 +87,7 @@ def edit_post_action(post_id):
     post = edit_post(user_id=id,post_id=post_id,title=data['title'],text=data['text'])
     return redirect('/community')
 
-@index_views.route('/post<int:post_id>', methods=['POST'])
+@index_views.route('/remove-post<int:post_id>', methods=['POST'])
 @login_required
 def remove_post_action(post_id):
     data = request.form
@@ -96,7 +96,7 @@ def remove_post_action(post_id):
     return redirect('/community')
 
 
-@index_views.route('/comment/<int:post_id>', methods=['POST'])
+@index_views.route('/add-comment/<int:post_id>', methods=['POST'])
 @login_required
 def comment_action(post_id):
     data = request.form
@@ -104,7 +104,7 @@ def comment_action(post_id):
     comment = make_comment(user_id=id,post_id=post_id,text=data['text'])
     return redirect('/community')
 
-@index_views.route('/comment/<int:post_id>/<int:comment_id>', methods=['POST'])
+@index_views.route('/edit-comment/<int:post_id>/<int:comment_id>', methods=['POST'])
 @login_required
 def edit_comment_action(post_id, comment_id):
     data = request.form
@@ -112,7 +112,7 @@ def edit_comment_action(post_id, comment_id):
     post = edit_comment(user_id=id,comment_id=comment_id,text=data['text'])
     return redirect('/community')
 
-@index_views.route('/comment/<int:post_id>/<int:comment_id>', methods=['POST'])
+@index_views.route('/remove-comment/<int:post_id>/<int:comment_id>', methods=['POST'])
 @login_required
 def remove_comment_action(post_id, comment_id):
     data = request.form
@@ -120,9 +120,35 @@ def remove_comment_action(post_id, comment_id):
     post = remove_comment(user_id=id,comment_id=comment_id)
     return redirect('/community')
 
+@index_views.route('/add-activity', methods=['POST'])
+@login_required
+def add_activity_action():
+    data = request.form
+    user_id = current_user.id 
+    activity = make_activity(user_id=user_id, title=data['title'], description = data['description'] , time_spent=data['time_spent'], calories_burnt=data['calories_burnt'])
+    return redirect('/activities')
+
+@index_views.route('/edit-activity/<int:activity_id>', methods=['POST'])
+@login_required
+def edit_activity_action(activity_id):
+    data = request.form
+    user_id = current_user.id 
+    activity = edit_activity(user_id=user_id, actitvity_id=actitvity_id, title=data['title'], description = data['description'] , time_spent=data['time_spent'], calories_burnt=data['calories_burnt'])
+    return redirect('/activities')
+
+        
+@index_views.route('/remove-activity/<int:activity_id>', methods=['POST'])
+@login_required
+def remove_activity_action(activity_id):
+    data = request.form
+    user_id = current_user.id 
+    activity = remove_activity(user_id=user_id, actitvity_id=actitvity_id)
+    return redirect('/activities')
 
 
-@index_views.route('/activity/<int:activity_id>', methods=['POST'])
+
+
+@index_views.route('/review-activity/<int:activity_id>', methods=['POST'])
 @login_required
 def review_activity_action(actitvity_id):
     data = request.form
