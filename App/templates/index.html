@@ -1,10 +1,45 @@
 {% extends "layout.html" %}
-{% block title %}Flask MVC App{% endblock %}
-{% block page %}Flask MVC App{% endblock %}
+{% block title %}JUDA Club Membership{% endblock %}
+{% block page %}JUDA Club Membership{% endblock %}
 
 {{ super() }}
 
 {% block content %}
-    <h1>Flask MVC</h1>
-    <p>This is a boileplate flask application which follows the MVC pattern for structuring the project.</p>
+<div class="wrapper row3" id="mainwrapper">
+    <main class="hoc container1 clear">
+       <section id="introblocks">
+         <h4 class="heading" id="services">SERVICES</h4>
+         <ul class="nospace group btmspace-80">
+           <li class="one_third first">
+             <figure><a class="imgover" href="/pages/activities.html"><img src="https://github.com/JoshGopaul/Club-Membership-Project/blob/main/App/static/activities.jpg" alt="Activity"></a>
+               <figcaption>
+                 <h6 class="heading">TRACK YOUR ACTIVITIES</h6>
+                 <p>Keep track of what activities you've done so far.</p>
+               </figcaption>
+             </figure>
+           </li>
+           <li class="one_third">
+             <figure><a class="imgover" href="/pages/activities.html"><img src="https://github.com/JoshGopaul/Club-Membership-Project/blob/main/App/static/progress.jpg" alt="Activity"></a>
+               <figcaption>
+                 <h6 class="heading">TRACK YOUR PROGRESS</h6>
+                 <p>Track your progress to see how far you've come.</p>
+               </figcaption>
+             </figure>
+           </li>
+           <li class="one_third">
+             <figure><a class="imgover" href="/pages/activities.html"><img src="https://github.com/JoshGopaul/Club-Membership-Project/blob/main/App/static/community.jpg" alt="Activity"></a>
+               <figcaption>
+                 <h6 class="heading">COMMUNITY POSTS</h6>
+                 <p>Get in touch with your fellow members by using the community forum.</p>
+               </figcaption>
+             </figure>
+           </li>
+         </ul>
+         <h4 class="heading" id="payprompt">Just $250 a month</h4>
+         <a id="paybtn" class="waves-effect waves-dark btn-large amber accent-4">JOIN NOW</a>
+       </section>
+    </main>
+  </div>
+
+  
 {% endblock %}

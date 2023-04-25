@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="wrapper" id="mainwrapper">
+      
+    <div id="pageintro" class = "hoc clear">
+      <article>
+        <h3 class="heading" id="commheading">COMMUNITY FORUM</h3>
+        <p style="color: white;">Get in touch with the JUDA community.</p>
+      </article>
+    </div>
+    
+    <main class="hoc container1 clear">
+      <h4 class="heading" id="services">Welcome, User!</h4>
+      <h5 class="heading" id="Comfeed">Community Feed</h5>
+      <form>
+        <input placeholder="Post Title" style="color:white;" id="title" type="text" class="validate">
+        <div class="input-field">
+          <textarea id="content" style="color: white;" class="materialize-textarea" data-length="240"></textarea></textarea>
+          <label for="content">Post Content</label>
+        </div>
+
+        <a id="postbtn" class="waves-effect waves-dark btn-large amber accent-4">CREATE POST</a>
+      </form>
+        
+      </div>
+    </main>
+  </div>
+
+{%endblock%}
