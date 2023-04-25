@@ -22,13 +22,15 @@ def home_page():
     return render_template('layout.html')                    
 
 
-@index_views.route('/community', methods=['GET'])
+@index_views.route('/community/<int:post_id>', methods=['GET'])
 @login_required
-def community_page():
+def community_page(post_id=1):
     id = current_user.id
     posts = Post.query.all()
     comments = Comments.query.all()
-    return render_template('community.html', posts=posts, comments=comments)
+    selected_post = Post.query.filter_by(post_id=post_id).first()
+    selected_post_comments = Comments.query.filter_by(post_id=post_id).all()
+    return render_template('community.html', posts=posts, comments=comments, selected_post=selected_post, selected_post_comments=selected_post_comments)
 
 
 @index_views.route('/membership', methods=['GET'])
@@ -40,12 +42,14 @@ def membership_page():
 @index_views.route('/activities', methods=['GET'])
 @login_required
 def activity_page():
-    return render_template('activity.html')
+    activities = Activity.query.all()
+    return render_template('activity.html', activities=activities)
 
 @index_views.route('/progress', methods=['GET'])
 @login_required
 def progress_page():
-    return render_template('progress.html')
+    reviews = Review.query.all()
+    return render_template('progress.html', reviews=reviews)
 
 
 
